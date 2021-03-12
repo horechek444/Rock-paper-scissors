@@ -1,0 +1,47 @@
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.info__title {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.info__wins-losses {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1;
+}
+
+.info__wins,
+.info__losses {
+    display: flex;
+    align-items: center;
+}
+
+.info__number {
+    font-size: 52px;
+    margin-right: 5px;
+}
+
+.info__wins {
+    margin-right: 30px;
+}
+
+.info__wins .info__number {
+    color: #5dc674;
+}
+
+.info__losses .info__number {
+    color: #da516f;
+}
