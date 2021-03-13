@@ -3,7 +3,7 @@ import choices from "./icons/vendor";
 import './App.css';
 import Info from "./components/Info/Info";
 import Popup from "./components/Popup/Popup";
-import ChoiceButton from "./components/ChoiceButton/ChoiceButton";
+import Choices from "./components/Choices/Choices";
 
 const App = () => {
   const [wins, setWins] = React.useState(0);
@@ -21,13 +21,13 @@ const App = () => {
     setUserChoice(chosenChoice);
 
     if (chosenChoice.losesTo === computerChoice.id) {
-       setGameState('lose');
-       setLosses(losses => losses + 1);
+      setGameState('lose');
+      setLosses(losses => losses + 1);
     } else if (computerChoice.losesTo === chosenChoice.id) {
-       setGameState('win');
-       setWins(wins => wins + 1);
+      setGameState('win');
+      setWins(wins => wins + 1);
     } else if (chosenChoice.id === computerChoice.id) {
-       setGameState('draw');
+      setGameState('draw');
     }
   }
 
@@ -41,23 +41,9 @@ const App = () => {
   return (
     <div className="app">
       <Info wins={wins} losses={losses}/>
-      {gameState && <Popup gameState={gameState} restartGame={restartGame} computerChoice={computerChoice} userChoice={userChoice}/>}
-
-      <div className="choices">
-        <div>Ты</div>
-        <div />
-        <div>Компьютер</div>
-
-        <div>
-          {choices.map(choice => <ChoiceButton name={choice.name} handleUserChoice={handleUserChoice} id={choice.id} key={choice.id}><choice.component /></ChoiceButton>)}
-        </div>
-
-        <div className="vs">против</div>
-
-        <div>
-          <button className="computer-choice choices__button">?</button>
-        </div>
-      </div>
+      {gameState &&
+      <Popup gameState={gameState} restartGame={restartGame} computerChoice={computerChoice} userChoice={userChoice}/>}
+      <Choices handleUserChoice={handleUserChoice} />
     </div>
   );
 }
