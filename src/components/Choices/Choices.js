@@ -13,10 +13,15 @@ const Choices = ({handleUserChoice}) => {
 
       <div className="choices__body">
         <div className="choices__column">
-          {choices.map(choice => <ChoiceButton name={choice.name} handleUserChoice={handleUserChoice} id={choice.id}
-                                               key={choice.id}>
-            <choice.component/>
-          </ChoiceButton>)}
+          {choices.map(choice => (
+            <ChoiceButton
+              name={choice.name}
+              handleUserChoice={handleUserChoice}
+              id={choice.id}
+              key={choice.id}>
+              <choice.component/>
+            </ChoiceButton>
+          ))}
         </div>
 
         <span className="choices__vs choices__column">против</span>

@@ -42,8 +42,13 @@ const App = () => {
     <div className="app">
       <Info wins={wins} losses={losses}/>
       {gameState &&
-      <Popup gameState={gameState} restartGame={restartGame} computerChoice={computerChoice} userChoice={userChoice}/>}
-      <Choices handleUserChoice={handleUserChoice} />
+      <Popup
+        gameState={gameState}
+        restartGame={restartGame}
+        computerChoice={computerChoice}
+        userChoice={userChoice}/>}
+      <Choices
+        handleUserChoice={handleUserChoice} />
     </div>
   );
 }
